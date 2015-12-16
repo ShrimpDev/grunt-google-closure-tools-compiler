@@ -4,6 +4,7 @@ A Grunt task for Closure Compiler.
 
 ## Todo
 - Write tests
+- Write docs
 - Print out some reports after compiling
 - Make closure externs possible
 - Add banner to JS files
