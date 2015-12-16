@@ -18,24 +18,27 @@ module.exports = function (grunt) {
 //  var gzip = require('zlib').gzip;
 
   grunt.registerMultiTask('google_closure_compiler', 'A Grunt task for Closure Compiler.', function () {
+
     var compileDone = this.async(); // Asynchronous task
 
+    console.log(this.options());
+    console.log(" ");
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
-      closure_options: {
-        compilation_level: 'SIMPLE',
-        create_source_map: true,
-        debug: false
-      },
+      closure_compilation_level: 'SIMPLE',
+      closure_create_source_map: true,
+      closure_debug: false,
       banner: '',
       report_file: '',
       compiler_jar: 'node_modules/google-closure-compiler/compiler.jar',
-      maxBuffer: 200,
+      exec_maxBuffer: 200,
       java_d32: false,
       java_tieredcompilation: true
     });
 
-    this.options.cwd = this.options.cwd || './';
+    console.log(options);
+    console.log(" ");
+//    this.options.cwd = this.options.cwd || './';
 
     // Check if the compiler_jar property is empty
     if (options.compiler_jar.trim() === "") {
@@ -50,9 +53,9 @@ module.exports = function (grunt) {
     }
 
     // Check compilation level
-    if (options.closure_options.compilation_level !== "SIMPLE" &&
-            options.closure_options.compilation_level !== "ADVANCED" &&
-            options.closure_options.compilation_level !== "WHITESPACE_ONLY") {
+    if (options.compilation_level !== "SIMPLE" &&
+            options.compilation_level !== "ADVANCED" &&
+            options.compilation_level !== "WHITESPACE_ONLY") {
       grunt.warn('Wrong value for compilation level. (Possible values: SIMPLE, ADVANCED, WHITESPACE_ONLY)');
       return false;
     }
@@ -66,21 +69,21 @@ module.exports = function (grunt) {
     this.files.forEach(function (f) {
       var output_file = f.dest;
       var output_mapfile = output_file + '.map';
-      //var output_reportFile = options.report_file || output_file + '.report.txt';
+      var output_reportFile = options.report_file || output_file + '.report.txt';
 
       var javascript_files = '--js="' + f.src.join('" --js="') + '"';
       var closure_command = command + ' ' + javascript_files + ' --js_output_file="' + output_file + '"';
 
       // Add compilation level
-      closure_command += ' --compilation_level="' + options.closure_options.compilation_level + '"';
+      closure_command += ' --compilation_level="' + options.compilation_level + '"';
 
       // Add source map param if necessary
-      if (options.closure_options.create_source_map) {
+      if (options.create_source_map) {
         closure_command += ' --create_source_map="' + output_mapfile + '"';
       }
 
       // Add debug param if necessary
-      if (options.closure_options.debug) {
+      if (options.debug) {
         closure_command += ' --debug';
       }
 
@@ -88,29 +91,32 @@ module.exports = function (grunt) {
       grunt.file.write(output_file, '');
 
       console.log(closure_command);
+      console.log("-------------");
 
       //, cwd: options.cwd
-      /*
-       exec(closure_command, {maxBuffer: options.maxBuffer * 1024}, function (err, stdout, stderr) {
-       if (err) {
-       grunt.warn(err);
-       done(false);
-       }
-       
-       if (stdout) {
-       grunt.log.writeln(stdout);
-       }
-       
-       if (reportFile.length) {
-       compileDone();
-       } else {
-       if (options.report) {
-       grunt.log.error(stderr);
-       }
-       compileDone();
-       }
-       });
-       */
+
+      exec(closure_command, {maxBuffer: options.exec_maxBuffer * 1024}, function (err, stdout, stderr) {
+        if (err) {
+          grunt.warn(err);
+          compileDone(false);
+        }
+
+        if (stdout) {
+          grunt.log.writeln(stdout);
+        }
+
+        if (output_reportFile.length) {
+          compileDone();
+        } else {
+          if (options.output_reportFile) {
+            grunt.log.error(stderr);
+          }
+          compileDone();
+        }
+      });
+      console.log(" ");
+      console.log(" ");
+      console.log(" ");
     });
   });
 

@@ -32,18 +32,23 @@ module.exports = function (grunt) {
         options: {
         },
         files: {
-          'tmp/main_default.js': ['test/fixtures/main_default.js', 'test/fixtures/main_default_second.js'],
-          'tmp/main_default_second.js': ['test/fixtures/main_default.js', 'test/fixtures/main_default_second.js'],
-          'tmp/main_default_third.js': ['test/fixtures/*'],
-          'tmp/main_default_fourth.js': ['test/fixtures/**']
+          'tmp/main_default_options.js': ['test/fixtures/main_default.js', 'test/fixtures/main_default_second.js']
         }
       },
-      custom_options: {
+      custom_options_advanced: {
         options: {
-          java_tieredcompilation: false
+          closure_compilation_level: 'ADVANCED'
         },
         files: {
-          'tmp/main_custom.js': ['test/fixtures/main_custom.js', 'test/fixtures/main_custom_second.js']
+          'tmp/custom_options_advanced.js': ['test/fixtures/main_custom.js', 'test/fixtures/main_custom_second.js']
+        }
+      },
+      custom_options_whitespace_only: {
+        options: {
+          closure_compilation_level: 'WHITESPACE_ONLY'
+        },
+        files: {
+          'tmp/custom_options_advanced.js': ['test/fixtures/main_custom.js', 'test/fixtures/main_custom_second.js']
         }
       }
     },
@@ -63,7 +68,7 @@ module.exports = function (grunt) {
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['clean', 'google_closure_compiler:default_options', 'google_closure_compiler:custom_options', 'nodeunit']);
+  grunt.registerTask('test', ['clean', 'google_closure_compiler:default_options', 'google_closure_compiler:custom_options_advanced', 'google_closure_compiler:custom_options_whitespace_only', 'nodeunit']);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);
