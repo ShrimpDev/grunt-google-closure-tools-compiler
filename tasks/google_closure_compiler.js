@@ -18,11 +18,8 @@ module.exports = function (grunt) {
 //  var gzip = require('zlib').gzip;
 
   grunt.registerMultiTask('google_closure_compiler', 'A Grunt task for Closure Compiler.', function () {
-
     var compileDone = this.async(); // Asynchronous task
-
-    console.log(this.options());
-    console.log(" ");
+    //
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
       closure_compilation_level: 'SIMPLE',
@@ -35,10 +32,6 @@ module.exports = function (grunt) {
       java_d32: false,
       java_tieredcompilation: true
     });
-
-    console.log(options);
-    console.log(" ");
-//    this.options.cwd = this.options.cwd || './';
 
     // Check if the compiler_jar property is empty
     if (options.compiler_jar.trim() === "") {
@@ -53,9 +46,9 @@ module.exports = function (grunt) {
     }
 
     // Check compilation level
-    if (options.compilation_level !== "SIMPLE" &&
-            options.compilation_level !== "ADVANCED" &&
-            options.compilation_level !== "WHITESPACE_ONLY") {
+    if (options.closure_compilation_level !== "SIMPLE" &&
+            options.closure_compilation_level !== "ADVANCED" &&
+            options.closure_compilation_level !== "WHITESPACE_ONLY") {
       grunt.warn('Wrong value for compilation level. (Possible values: SIMPLE, ADVANCED, WHITESPACE_ONLY)');
       return false;
     }
@@ -75,48 +68,45 @@ module.exports = function (grunt) {
       var closure_command = command + ' ' + javascript_files + ' --js_output_file="' + output_file + '"';
 
       // Add compilation level
-      closure_command += ' --compilation_level="' + options.compilation_level + '"';
+      closure_command += ' --compilation_level="' + options.closure_compilation_level + '"';
 
       // Add source map param if necessary
-      if (options.create_source_map) {
+      if (options.closure_create_source_map === true) {
         closure_command += ' --create_source_map="' + output_mapfile + '"';
       }
 
       // Add debug param if necessary
-      if (options.debug) {
+      if (options.closure_debug === true) {
         closure_command += ' --debug';
       }
 
-      // Closure tools don't create directories, so first we let grunt write into output file
+      // Closure tools don't create directories, so first we create an empty file at our dest
       grunt.file.write(output_file, '');
 
-      console.log(closure_command);
-      console.log("-------------");
-
-      //, cwd: options.cwd
+      grunt.verbose.writeln(grunt.util.linefeed + 'Execute' + grunt.util.linefeed + closure_command + grunt.util.linefeed);
 
       exec(closure_command, {maxBuffer: options.exec_maxBuffer * 1024}, function (err, stdout, stderr) {
         if (err) {
           grunt.warn(err);
           compileDone(false);
+        } else {
+          if (options.banner.trim() !== "") {
+            var tmpOutputFile = options.banner + grunt.file.read(output_file);
+            grunt.file.write(output_file, tmpOutputFile);
+          }
+
+          if (options.closure_create_source_map === true) {
+            var tmpOutputMapFile = grunt.file.read(output_mapfile) + grunt.util.linefeed + '//# sourceMappingURL=' + output_mapfile;
+            grunt.file.write(output_mapfile, tmpOutputMapFile);
+          }
         }
 
         if (stdout) {
           grunt.log.writeln(stdout);
         }
 
-        if (output_reportFile.length) {
-          compileDone();
-        } else {
-          if (options.output_reportFile) {
-            grunt.log.error(stderr);
-          }
-          compileDone();
-        }
+        compileDone();
       });
-      console.log(" ");
-      console.log(" ");
-      console.log(" ");
     });
   });
 
