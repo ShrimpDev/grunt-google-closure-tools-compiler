@@ -8,7 +8,7 @@
 
 'use strict';
 
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
   // Project configuration.
   grunt.initConfig({
@@ -22,39 +22,37 @@ module.exports = function(grunt) {
         jshintrc: '.jshintrc'
       }
     },
-
     // Before generating any new files, remove any previously-created files.
     clean: {
       tests: ['tmp']
     },
-
     // Configuration to be run (and then tested).
     google_closure_compiler: {
       default_options: {
         options: {
         },
         files: {
-          'tmp/default_options': ['test/fixtures/testing', 'test/fixtures/123']
+          'tmp/main_default.js': ['test/fixtures/main_default.js', 'test/fixtures/main_default_second.js'],
+          'tmp/main_default_second.js': ['test/fixtures/main_default.js', 'test/fixtures/main_default_second.js'],
+          'tmp/main_default_third.js': ['test/fixtures/*'],
+          'tmp/main_default_fourth.js': ['test/fixtures/**']
         }
       },
       custom_options: {
         options: {
-          separator: ': ',
-          punctuation: ' !!!'
+          java_tieredcompilation: false
         },
         files: {
-          'tmp/custom_options': ['test/fixtures/testing', 'test/fixtures/123']
+          'tmp/main_custom.js': ['test/fixtures/main_custom.js', 'test/fixtures/main_custom_second.js']
         }
       }
     },
-
     // Unit tests.
     nodeunit: {
       tests: ['test/*_test.js']
     }
 
   });
-
   // Actually load this plugin's task(s).
   grunt.loadTasks('tasks');
 
@@ -65,7 +63,7 @@ module.exports = function(grunt) {
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['clean', 'google_closure_compiler', 'nodeunit']);
+  grunt.registerTask('test', ['clean', 'google_closure_compiler:default_options', 'google_closure_compiler:custom_options', 'nodeunit']);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);
