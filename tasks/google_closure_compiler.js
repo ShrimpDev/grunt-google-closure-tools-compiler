@@ -105,6 +105,7 @@ module.exports = function (grunt) {
           grunt.log.writeln(stdout);
         }
 
+        grunt.log.ok('Compiled succesfully.');
         compileDone();
       });
     });
