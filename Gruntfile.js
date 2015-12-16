@@ -51,7 +51,7 @@ module.exports = function (grunt) {
                   ' */\n'
         },
         files: {
-          'tmp/custom_options_advanced.js': ['test/fixtures/main_custom.js', 'test/fixtures/main_custom_second.js']
+          'tmp/custom_options_whitespace_only.js': ['test/fixtures/main_custom.js', 'test/fixtures/main_custom_second.js']
         }
       }
     },
