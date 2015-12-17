@@ -69,6 +69,19 @@ module.exports = function (grunt) {
         src: 'CHANGELOG.md'
       }
     },
+    shell: {
+      verb: {
+        command: 'verb'
+      }
+    },
+    replace: {
+      readme_changelog: {
+        options: {
+          patterns: [{match: 'CHANGELOG', replacement: '<%= grunt.file.read("CHANGELOG.md") %>'}]
+        },
+        files: [{src: ['README.md'], dest: './'}]
+      }
+    },
     bump: {
       options: {
         files: ['package.json'],
@@ -86,7 +99,8 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
   grunt.loadNpmTasks('grunt-conventional-changelog');
-  grunt.loadNpmTasks('grunt-verb');
+  grunt.loadNpmTasks('grunt-shell');
+  grunt.loadNpmTasks('grunt-replace');
   grunt.loadNpmTasks('grunt-bump');
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
@@ -95,10 +109,12 @@ module.exports = function (grunt) {
 
   grunt.registerTask('changelog', ['conventionalChangelog']);
 
-  grunt.registerTask('bump-up', ['default', 'bump-only:patch', 'changelog', 'verb', 'bump-commit']);
+  grunt.registerTask('docs', ['changelog', 'shell', 'replace']);
+
+  grunt.registerTask('bump-up', ['default', 'bump-only:patch', 'docs', 'bump-commit']);
   grunt.registerTask('bump-up-patch', ['bump-up']);
-  grunt.registerTask('bump-up-minor', ['default', 'bump-only:minor', 'changelog', 'verb', 'bump-commit']);
-  grunt.registerTask('bump-up-major', ['default', 'bump-only:major', 'changelog', 'verb', 'bump-commit']);
+  grunt.registerTask('bump-up-minor', ['default', 'bump-only:minor', 'docs', 'bump-commit']);
+  grunt.registerTask('bump-up-major', ['default', 'bump-only:major', 'docs', 'bump-commit']);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);
