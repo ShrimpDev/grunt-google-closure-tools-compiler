@@ -1,6 +1,6 @@
 {
     "name": "grunt-google-closure-compiler",
-    "description": "A Grunt task for Closure Compiler.",
+    "description": "A Grunt task for Closure Compiler to minify JS.",
     "version": "0.1.0",
     "homepage": "https://github.com/ShrimpDev/grunt-google-closure-compiler",
     "author": {
