@@ -109,12 +109,13 @@ module.exports = function (grunt) {
 
   grunt.registerTask('changelog', ['conventionalChangelog']);
 
-  grunt.registerTask('docs', ['changelog', 'shell', 'replace']);
+  grunt.registerTask('docs', ['shell', 'replace']);
+  grunt.registerTask('docs-with-changelog', ['changelog', 'docs']);
 
-  grunt.registerTask('bump-up', ['default', 'bump-only:patch', 'docs', 'bump-commit']);
+  grunt.registerTask('bump-up', ['default', 'bump-only:patch', 'docs-with-changelog', 'bump-commit']);
   grunt.registerTask('bump-up-patch', ['bump-up']);
-  grunt.registerTask('bump-up-minor', ['default', 'bump-only:minor', 'docs', 'bump-commit']);
-  grunt.registerTask('bump-up-major', ['default', 'bump-only:major', 'docs', 'bump-commit']);
+  grunt.registerTask('bump-up-minor', ['default', 'bump-only:minor', 'docs-with-changelog', 'bump-commit']);
+  grunt.registerTask('bump-up-major', ['default', 'bump-only:major', 'docs-with-changelog', 'bump-commit']);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);
