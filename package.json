@@ -37,6 +37,7 @@
         "grunt-contrib-jshint": "^0.11.*",
         "grunt-contrib-nodeunit": "^0.4.*",
         "grunt-conventional-changelog": "^5.*",
+        "grunt-verb": "^0.2.4",
         "verb": "^0.8.10"
     },
     "peerDependencies": {
