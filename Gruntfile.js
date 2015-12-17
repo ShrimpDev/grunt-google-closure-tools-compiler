@@ -27,7 +27,7 @@ module.exports = function (grunt) {
       tests: ['tmp']
     },
     // Configuration to be run (and then tested).
-    google_closure_compiler: {
+    googleclosurecompiler: {
       default_options: {
         options: {
         },
@@ -62,20 +62,7 @@ module.exports = function (grunt) {
     conventionalChangelog: {
       options: {
         changelogOpts: {
-          // conventional-changelog options go here
-          preset: 'jshint'
-        },
-        context: {
-          // context goes here
-        },
-        gitRawCommitsOpts: {
-          // git-raw-commits options go here
-        },
-        parserOpts: {
-          // conventional-commits-parser options go here
-        },
-        writerOpts: {
-          // conventional-changelog-writer options go here
+          preset: 'angular'
         }
       },
       release: {
@@ -103,7 +90,14 @@ module.exports = function (grunt) {
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['clean', 'google_closure_compiler:default_options', 'google_closure_compiler:custom_options_advanced', 'google_closure_compiler:custom_options_whitespace_only', 'nodeunit']);
+  grunt.registerTask('test', ['clean', 'googleclosurecompiler:default_options', 'googleclosurecompiler:custom_options_advanced', 'googleclosurecompiler:custom_options_whitespace_only', 'nodeunit']);
+
+  grunt.registerTask('changelog', ['conventionalChangelog']);
+
+  grunt.registerTask('bump-up', ['default', 'bump-only:patch', 'changelog', 'bump-commit']);
+  grunt.registerTask('bump-up-patch', ['bump-up']);
+  grunt.registerTask('bump-up-minor', ['default', 'bump-only:minor', 'changelog', 'bump-commit']);
+  grunt.registerTask('bump-up-major', ['default', 'bump-only:major', 'changelog', 'bump-commit']);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);
