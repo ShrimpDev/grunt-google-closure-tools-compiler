@@ -71,15 +71,7 @@ module.exports = function (grunt) {
     },
     shell: {
       verb: {
-        command: 'verb'
-      }
-    },
-    replace: {
-      readme_changelog: {
-        options: {
-          patterns: [{match: 'CHANGELOG', replacement: '<%= grunt.file.read("CHANGELOG.md") %>'}]
-        },
-        files: [{src: ['README.md'], dest: './'}]
+        command: 'cp CHANGELOG.md docs/. && verb && rm docs/CHANGELOG.md' // This is a bit silly... verb dev branch can make this easier
       }
     },
     bump: {
@@ -100,7 +92,6 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
   grunt.loadNpmTasks('grunt-conventional-changelog');
   grunt.loadNpmTasks('grunt-shell');
-  grunt.loadNpmTasks('grunt-replace');
   grunt.loadNpmTasks('grunt-bump');
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
@@ -109,7 +100,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('changelog', ['conventionalChangelog']);
 
-  grunt.registerTask('docs', ['shell', 'replace']);
+  grunt.registerTask('docs', ['shell']);
   grunt.registerTask('docs-with-changelog', ['changelog', 'docs']);
 
   grunt.registerTask('bump-up', ['default', 'bump-only:patch', 'docs-with-changelog', 'bump-commit']);
