@@ -35,22 +35,22 @@ module.exports = function (grunt) {
 
     // Check if the compiler_jar property is empty
     if (options.compiler_jar.trim() === "") {
-      grunt.warn('Empty compiler_jar property.');
-      return false;
+      grunt.fail.warn('Empty compiler_jar property. No compilation executed...');
+      compileDone(false);
     }
 
     // Check if the files property is empty
     if (this.files.length <= 0) {
-      grunt.warn('Empty files property.');
-      return false;
+      grunt.fail.warn('Empty files property.');
+      compileDone(false);
     }
 
     // Check compilation level
     if (options.closure_compilation_level !== "SIMPLE" &&
             options.closure_compilation_level !== "ADVANCED" &&
             options.closure_compilation_level !== "WHITESPACE_ONLY") {
-      grunt.warn('Wrong value for compilation level. (Possible values: SIMPLE, ADVANCED, WHITESPACE_ONLY)');
-      return false;
+      grunt.fail.warn('Wrong value for compilation level. (Possible values: SIMPLE, ADVANCED, WHITESPACE_ONLY)');
+      compileDone(false);
     }
 
     // Java command with optional parameters
@@ -60,6 +60,11 @@ module.exports = function (grunt) {
             '-jar "' + options.compiler_jar + '"';
 
     this.files.forEach(function (f) {
+      if (f.src.length === 0) {
+        grunt.fail.warn('No javascript files given');
+        compileDone(false);
+      }
+
       var output_file = f.dest;
       var output_mapfile = output_file + '.map';
       var output_reportFile = options.report_file || output_file + '.report.txt';
