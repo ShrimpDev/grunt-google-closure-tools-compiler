@@ -3,8 +3,8 @@
 A Grunt task for Closure Compiler.
 
 ## Todo
-- Write tests
-- Write docs
+- Write tests https://travis-ci.org
+- Write docs https://github.com/verbose/verb
 - Print out some reports after compiling
 - Make closure externs possible
 - Add formatting param `[PRETTY_PRINT | PRINT_INPUT_DELIMITER | SINGLE_QUOTES]`
