@@ -59,6 +59,29 @@ module.exports = function (grunt) {
     nodeunit: {
       tests: ['test/*_test.js']
     },
+    conventionalChangelog: {
+      options: {
+        changelogOpts: {
+          // conventional-changelog options go here
+          preset: 'jshint'
+        },
+        context: {
+          // context goes here
+        },
+        gitRawCommitsOpts: {
+          // git-raw-commits options go here
+        },
+        parserOpts: {
+          // conventional-commits-parser options go here
+        },
+        writerOpts: {
+          // conventional-changelog-writer options go here
+        }
+      },
+      release: {
+        src: 'CHANGELOG.md'
+      }
+    },
     bump: {
       options: {
         files: ['package.json'],
@@ -75,6 +98,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
+  grunt.loadNpmTasks('grunt-conventional-changelog');
   grunt.loadNpmTasks('grunt-bump');
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
