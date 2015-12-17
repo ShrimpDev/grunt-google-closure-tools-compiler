@@ -17,9 +17,9 @@ module.exports = function (grunt) {
 //  var path = require('path');
 //  var gzip = require('zlib').gzip;
 
-  grunt.registerMultiTask('google_closure_compiler', 'A Grunt task for Closure Compiler.', function () {
+  grunt.registerMultiTask('google-closure-compiler', 'A Grunt task for Closure Compiler.', function () {
     var compileDone = this.async(); // Asynchronous task
-    //
+
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
       closure_compilation_level: 'SIMPLE',
