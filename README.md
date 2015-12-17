@@ -1,11 +1,11 @@
-# grunt-google-closure-compiler
+# grunt-google-closure-compiler [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
 > A Grunt task for Closure Compiler to minify JS.
 
 <!-- toc -->
 
 * [Getting Started](#getting-started)
-* [Clean task](#clean-task)
+* [googleclosurecompiler task](#googleclosurecompiler-task)
   - [Options](#options)
   - [Usage Examples](#usage-examples)
 * [Release History](#release-history)
@@ -35,23 +35,132 @@ Once the plugin has been installed, it may be enabled inside your Gruntfile with
 grunt.loadNpmTasks('grunt-google-closure-compiler');
 ```
 
-## Clean task
+## googleclosurecompiler task
 
-_Run this task with the `grunt google-closure-compiler` command._
+_Run this task with the `grunt googleclosurecompiler` command._
+
+This task requires that you have the closure compiler jar file anywhere on your building machine. However, this plugin loads with npm the compiler.jar and set it as default compiler. You still can use a custom or another build from closure to set a new path to the
+jar file you want.
 
 Task targets, files and options may be specified according to the grunt [Configuring tasks](http://gruntjs.com/configuring-tasks) guide.
 
 ### Options
 
-WIP
+## closure_compilation_level
+
+Choices: `'SIMPLE'`, `'ADVANCED'` , `'WHITESPACE_ONLY'`
+Default: `'SIMPLE'`
+
+Choose which closure compilation level we should use.
+
+## closure_create_source_map
+
+Type: `Boolean`
+Default: `true`
+
+If `true`, a source map file will be generated in the same directory as the `dest` file. By default it will have the same basename as the `dest` file, but with a `.map` extension.
+
+## closure_create_source_map
+
+Type: `Boolean`
+Default: `true`
+
+Turn on closure compiler debug parameter.
+
+## banner
+
+Type: `String`
+Default: `''`
+
+Put a string at the top of the compiled files.
+
+## compiler_jar
+
+Type: `String`
+Default: `'node_modules/google-closure-compiler/compiler.jar'`
+
+Path to the compiler.jar file. This could be relative beginning from the google-closure-compiler directory or absolute like `'/opt/closure-compiler/compiler.jar'`.
+
+## exec_maxBuffer
+
+Type: `Integer`
+Default: `0`
+
+Set maxBuffer if you got message "Error: maxBuffer exceeded."
+
+## java_d32
+
+Type: `Boolean`
+Default: `false`
+
+If this is true, the jar file will be executed with `-client` and `-d32` java parameters.
+
+## java_tieredcompilation
+
+Type: `Boolean`
+Default: `true`
+
+If this is true, the jar file will be executed with `-server` and `-XX:+TieredCompilation` java parameters.
 
 ### Usage Examples
 
-WIP
+#### Basic compression
+
+```js
+// Project configuration.
+grunt.initConfig({
+  googleclosurecompiler: {
+    my_target: {
+      files: {
+        'dest/output.min.js': ['src/input1.js', 'src/input2.js']
+      }
+    }
+  }
+});
+```
+
+#### Advanced compilation
+
+```js
+// Project configuration.
+grunt.initConfig({
+  googleclosurecompiler: {
+    my_target: {
+      options: {
+        closure_compilation_level: 'ADVANCED',
+        banner: '/*\n' +
+                ' * Minified by closure compiler \n' +
+                ' */\n'
+      },
+      files: {
+        'dest/output.min.js': ['src/*.js']
+      }
+    }
+  }
+});
+```
+
+#### All files with all subdirectories
+
+```js
+// Project configuration.
+grunt.initConfig({
+  googleclosurecompiler: {
+    my_target: {
+      options: {
+        closure_compilation_level: 'WHITESPACE_ONLY'
+      },
+      files: {
+        'dest/output.min.js': ['src/**']
+      }
+    }
+  }
+});
+```
 
 ## Release History
 
-WIP
+{# CHANGELOG #}
 
 ## ToDo
 
@@ -70,7 +179,7 @@ WIP
 **CSoellinger**
 
 + [github/ShrimpDev](https://github.com/ShrimpDev)
-<!-- `twitter`, `twitter.username`, and `username` variables are undefined -->
+* [twitter/Zerogiven](http://twitter.com/Zerogiven)
 
 ## License
 

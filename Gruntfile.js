@@ -86,6 +86,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
   grunt.loadNpmTasks('grunt-conventional-changelog');
+  grunt.loadNpmTasks('grunt-verb');
   grunt.loadNpmTasks('grunt-bump');
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
@@ -94,10 +95,10 @@ module.exports = function (grunt) {
 
   grunt.registerTask('changelog', ['conventionalChangelog']);
 
-  grunt.registerTask('bump-up', ['default', 'bump-only:patch', 'changelog', 'bump-commit']);
+  grunt.registerTask('bump-up', ['default', 'bump-only:patch', 'changelog', 'verb', 'bump-commit']);
   grunt.registerTask('bump-up-patch', ['bump-up']);
-  grunt.registerTask('bump-up-minor', ['default', 'bump-only:minor', 'changelog', 'bump-commit']);
-  grunt.registerTask('bump-up-major', ['default', 'bump-only:major', 'changelog', 'bump-commit']);
+  grunt.registerTask('bump-up-minor', ['default', 'bump-only:minor', 'changelog', 'verb', 'bump-commit']);
+  grunt.registerTask('bump-up-major', ['default', 'bump-only:major', 'changelog', 'verb', 'bump-commit']);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);
