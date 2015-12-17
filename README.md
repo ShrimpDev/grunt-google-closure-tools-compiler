@@ -1,6 +1,7 @@
 # grunt-google-closure-compiler
 
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+[![Build Status](https://travis-ci.org/ShrimpDev/grunt-google-closure-compiler.svg)](https://travis-ci.org/ShrimpDev/grunt-google-closure-compiler)
 
 > A Grunt task for Closure Compiler to minify JS.
 
