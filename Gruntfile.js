@@ -96,7 +96,7 @@ module.exports = function (grunt) {
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['clean', 'googleclosurecompiler:default_options', 'googleclosurecompiler:custom_options_advanced', 'googleclosurecompiler:custom_options_whitespace_only', 'nodeunit']);
+  grunt.registerTask('test', ['clean', 'closurecompiler:default_options', 'closurecompiler:custom_options_advanced', 'closurecompiler:custom_options_whitespace_only', 'nodeunit']);
 
   grunt.registerTask('changelog', ['conventionalChangelog']);
 
