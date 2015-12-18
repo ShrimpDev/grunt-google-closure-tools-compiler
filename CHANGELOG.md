@@ -1,3 +1,13 @@
+<a name="0.1.3"></a>
+## [0.1.3](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/compare/v0.1.2...v0.1.3) (2015-12-18)
+
+
+### Bug Fixes
+
+* **bump:** Fixing peerDependencies reference inside readme ([da7553e](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/commit/da7553e))
+
+
+
 <a name="0.1.2"></a>
 #### [0.1.2](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/compare/v0.1.1...v0.1.2) (2015-12-18)
 
