@@ -1,3 +1,13 @@
+<a name="0.1.3"></a>
+#### [0.1.3](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/compare/v0.1.2...v0.1.3) (2015-12-18)
+
+
+##### Bug Fixes
+
+* **bump:** Fixing peerDependencies reference inside readme ([da7553e](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/commit/da7553e))
+
+
+
 <a name="0.1.2"></a>
 #### [0.1.2](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/compare/v0.1.1...v0.1.2) (2015-12-18)
 
@@ -17,14 +27,11 @@
 #### [0.1.1](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/compare/v0.1.0...v0.1.1) (2015-12-17)
 
 
-##### Bug Fixes
-
-* **travis-ci:** Removing npm uninstall grunt ([1959803](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/commit/1959803))
-
 
 
 <a name="0.1.0"></a>
-### [0.1.0](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/compare/v0.1.0...v0.1.0) (2015-12-17)
+### 0.1.0 (2015-12-17)
+
 
 
 
