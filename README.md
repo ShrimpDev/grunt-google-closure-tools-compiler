@@ -172,13 +172,9 @@ grunt.initConfig({
 
 <a name="0.1.4"></a>
 
-## [0.1.4](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/compare/v0.1.2...v0.1.4) (2015-12-18)
+#### [0.1.4](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/compare/v0.1.2...v0.1.4) (2015-12-18)
 
-### Bug Fixes
-
-* **bump:** Fixing peerDependencies reference inside readme ([da7553e](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/commit/da7553e))
-
-### Features
+##### Features
 
 * **task:** Show input and output file size after compilation ([fe369ae](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/commit/fe369ae))
 
@@ -221,12 +217,12 @@ grunt.initConfig({
 * Add language_in param `ECMASCRIPT3 (default), ECMASCRIPT5, ECMASCRIPT5_STRICT, ECMASCRIPT6, ECMASCRIPT6_STRICT, ECMASCRIPT6_TYPED (experimental)`
 * Add language_out param `ECMASCRIPT3, ECMASCRIPT5, ECMASCRIPT5_STRICT, ECMASCRIPT6_TYPED (experimental)`
 * Support "--js closure-library/closure/goog/deps.js" https://github.com/thanpolas/grunt-closure-tools/issues/64
-*
+* 
   - google-closure-library
 
 * Enhancement: change compilation levels for certain files. https://github.com/gmarty/grunt-closure-compiler/issues/13
 * How to compile js files and put them into the same directory https://github.com/gmarty/grunt-closure-compiler/issues/25
-*
+* 
   - Check if output file exists in file array and sort it out
 * Enable log file
 
