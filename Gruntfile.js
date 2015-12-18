@@ -1,6 +1,6 @@
 /*
- * grunt-google-closure-compiler
- * https://github.com/ShrimpDev/grunt-google-closure-compiler
+ * grunt-google-closure-tools-compiler
+ * https://github.com/ShrimpDev/grunt-google-closure-tools-compiler
  *
  * Copyright (c) 2015 CSoellinger
  * Licensed under the MIT license.
