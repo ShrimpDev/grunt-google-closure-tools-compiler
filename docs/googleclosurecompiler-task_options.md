@@ -34,6 +34,12 @@ Default: `0`
 
 Set maxBuffer if you got message "Error: maxBuffer exceeded."
 
+## java_path
+Type: `String`<br />
+Default: `null`
+
+We use this path if it is setted. NOTE: If it is `null` we can also set the JAVA_HOME environment variable
+
 ## java_d32
 Type: `Boolean`<br />
 Default: `false`
