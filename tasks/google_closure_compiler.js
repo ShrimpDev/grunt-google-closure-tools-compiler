@@ -13,7 +13,13 @@
 module.exports = function (grunt) {
 
   var exec = require('child_process').exec;
-//  var fs = require('fs');
+  var fs = require('fs');
+
+  var getFilesizeInBytesfunction = function (filename) {
+    var stats = fs.statSync(filename);
+    var fileSizeInBytes = stats["size"];
+    return fileSizeInBytes;
+  };
 //  var path = require('path');
 //  var gzip = require('zlib').gzip;
 
@@ -103,6 +109,15 @@ module.exports = function (grunt) {
 
       grunt.verbose.writeln(grunt.util.linefeed + 'Execute' + grunt.util.linefeed + closure_command + grunt.util.linefeed);
 
+      var fSrcSizeTotal = 0.0;
+      f.src.forEach(function (fSrc) {
+        var fSrcSize = getFilesizeInBytesfunction(fSrc) / 1000.0;
+        grunt.verbose.writeln('Input ' + fSrc + ' (' + fSrcSize.toFixed(2) + ' KB)');
+        fSrcSizeTotal += fSrcSize;
+      });
+
+      grunt.log.writeln('Input  total size ' + fSrcSizeTotal.toFixed(2) + ' KB');
+
       exec(closure_command, {maxBuffer: options.exec_maxBuffer * 1024}, function (err, stdout, stderr) {
         if (err) {
           grunt.warn(err);
@@ -118,6 +133,12 @@ module.exports = function (grunt) {
             grunt.file.write(output_mapfile, tmpOutputMapFile);
           }
         }
+
+        var outputSize = getFilesizeInBytesfunction(output_file) / 1000;
+        var minifiedPercent = (outputSize.toFixed(2) / (fSrcSizeTotal.toFixed(2) / 100));
+
+        grunt.log.writeln('Output total size ' + outputSize.toFixed(2) + ' KB [' + (minifiedPercent > 0 ? '-' + (100 - minifiedPercent) : '0') + '%]');
+        grunt.verbose.writeln('Output file ' + output_file);
 
         if (stdout) {
           grunt.log.writeln(stdout);
