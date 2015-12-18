@@ -27,7 +27,7 @@ module.exports = function (grunt) {
       tests: ['tmp']
     },
     // Configuration to be run (and then tested).
-    googleclosurecompiler: {
+    closurecompiler: {
       default_options: {
         options: {
         },

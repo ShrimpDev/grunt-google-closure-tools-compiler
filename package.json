@@ -1,24 +1,24 @@
 {
-    "name": "grunt-google-closure-compiler",
+    "name": "grunt-google-closure-tools-compiler",
     "description": "A Grunt task for Closure Compiler to minify JS.",
     "version": "0.1.2",
-    "homepage": "https://github.com/ShrimpDev/grunt-google-closure-compiler",
+    "homepage": "https://github.com/ShrimpDev/grunt-google-closure-tools-compiler",
     "author": {
         "name": "CSoellinger",
         "email": "dev@csoellinger.at"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/ShrimpDev/grunt-google-closure-compiler.git"
+        "url": "https://github.com/ShrimpDev/grunt-google-closure-tools-compiler.git"
     },
     "bugs": {
-        "url": "https://github.com/ShrimpDev/grunt-google-closure-compiler/issues"
+        "url": "https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/issues"
     },
     "license": "MIT",
     "licenses": [
         {
             "type": "MIT",
-            "url": "https://github.com/ShrimpDev/grunt-google-closure-compiler/blob/master/LICENSE-MIT"
+            "url": "https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/blob/master/LICENSE-MIT"
         }
     ],
     "engines": {
