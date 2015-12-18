@@ -1,6 +1,6 @@
 /*
- * grunt-google-closure-compiler
- * https://github.com/ShrimpDev/grunt-google-closure-compiler
+ * grunt-google-closure-tools-compiler-compiler
+ * https://github.com/ShrimpDev/grunt-google-closure-tools-compiler
  *
  * Copyright (c) 2015 CSoellinger
  * Licensed under the MIT license.
@@ -17,7 +17,7 @@ module.exports = function (grunt) {
 //  var path = require('path');
 //  var gzip = require('zlib').gzip;
 
-  grunt.registerMultiTask('googleclosurecompiler', 'A Grunt task for Closure Compiler.', function () {
+  grunt.registerMultiTask('closurecompiler', 'A Grunt task for Closure Compiler.', function () {
     var compileDone = this.async(); // Asynchronous task
 
     // Merge task-specific and/or target-specific options with these defaults.

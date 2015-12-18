@@ -1,4 +1,4 @@
-_Run this task with the `grunt googleclosurecompiler` command._
+_Run this task with the `grunt closurecompiler` command._
 
 This task requires that you have the closure compiler jar file anywhere on your building machine. However, this plugin loads with npm the compiler.jar and set it as default compiler. You still can use a custom or another build from closure to set a new path to the
 jar file you want.

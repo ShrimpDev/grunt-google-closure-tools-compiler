@@ -1,14 +1,14 @@
-# grunt-google-closure-compiler
+# grunt-google-closure-tools-compiler
 
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
-[![Build Status](https://travis-ci.org/ShrimpDev/grunt-google-closure-compiler.svg)](https://travis-ci.org/ShrimpDev/grunt-google-closure-compiler)
+[![Build Status](https://travis-ci.org/ShrimpDev/grunt-google-closure-tools-compiler.svg)](https://travis-ci.org/ShrimpDev/grunt-google-closure-tools-compiler)
 
 > A Grunt task for Closure Compiler to minify JS.
 
 <!-- toc -->
 
 * [Getting Started](#getting-started)
-* [googleclosurecompiler task](#googleclosurecompiler-task)
+* [closurecompiler task](#closurecompiler-task)
   - [Options](#options)
   - [Usage Examples](#usage-examples)
 * [Release History](#release-history)
@@ -29,18 +29,18 @@ If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out th
 Install with [npm](https://www.npmjs.com/)
 
 ```sh
-$ npm install grunt-google-closure-compiler --save-dev
+$ npm install grunt-google-closure-tools-compiler --save-dev
 ```
 
 Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
 
 ```js
-grunt.loadNpmTasks('grunt-google-closure-compiler');
+grunt.loadNpmTasks('grunt-google-closure-tools-compiler');
 ```
 
-## googleclosurecompiler task
+## closurecompiler task
 
-_Run this task with the `grunt googleclosurecompiler` command._
+_Run this task with the `grunt closurecompiler` command._
 
 This task requires that you have the closure compiler jar file anywhere on your building machine. However, this plugin loads with npm the compiler.jar and set it as default compiler. You still can use a custom or another build from closure to set a new path to the
 jar file you want.
@@ -172,28 +172,28 @@ grunt.initConfig({
 
 <a name="0.1.2"></a>
 
-## [0.1.2](https://github.com/ShrimpDev/grunt-google-closure-compiler/compare/v0.1.1...v0.1.2) (2015-12-18)
+#### [0.1.2](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/compare/v0.1.1...v0.1.2) (2015-12-18)
 
-### Bug Fixes
+##### Bug Fixes
 
-* **task:** Catch error if files object is empty or dest file has an empty array ([bd37307](https://github.com/ShrimpDev/grunt-google-closure-compiler/commit/bd37307))
-* **travis-ci:** Removing npm uninstall grunt ([1959803](https://github.com/ShrimpDev/grunt-google-closure-compiler/commit/1959803))
+* **task:** Catch error if files object is empty or dest file has an empty array ([bd37307](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/commit/bd37307))
+* **travis-ci:** Removing npm uninstall grunt ([1959803](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/commit/1959803))
 
-### Features
+##### Features
 
-* **task:** Add JAVA_HOME and option.java_path to set the java binary path ([2c24e70](https://github.com/ShrimpDev/grunt-google-closure-compiler/commit/2c24e70))
+* **task:** Add JAVA_HOME and option.java_path to set the java binary path ([2c24e70](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/commit/2c24e70))
 
 <a name="0.1.1"></a>
 
-## [0.1.1](https://github.com/ShrimpDev/grunt-google-closure-compiler/compare/v0.1.0...v0.1.1) (2015-12-17)
+#### [0.1.1](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/compare/v0.1.0...v0.1.1) (2015-12-17)
 
-### Bug Fixes
+##### Bug Fixes
 
-* **travis-ci:** Removing npm uninstall grunt ([1959803](https://github.com/ShrimpDev/grunt-google-closure-compiler/commit/1959803))
+* **travis-ci:** Removing npm uninstall grunt ([1959803](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/commit/1959803))
 
 <a name="0.1.0"></a>
 
-# [0.1.0](https://github.com/ShrimpDev/grunt-google-closure-compiler/compare/v0.1.0...v0.1.0) (2015-12-17)
+### [0.1.0](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/compare/v0.1.0...v0.1.0) (2015-12-17)
 
 ## ToDo
 
@@ -223,7 +223,7 @@ grunt.initConfig({
 ## License
 
 Copyright © 2015 CSoellinger
-Released under the [MIT](https://github.com/ShrimpDev/grunt-google-closure-compiler/blob/master/LICENSE-MIT) license.
+Released under the [MIT](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/blob/master/LICENSE-MIT) license.
 
 ***
 
