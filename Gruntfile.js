@@ -53,10 +53,6 @@ module.exports = function (grunt) {
         files: {
           'tmp/custom_options_whitespace_only.js': ['test/fixtures/main_custom.js', 'test/fixtures/main_custom_second.js']
         }
-      },
-      custom_options_fail: {
-        options: {},
-        files: {'tmp/custom_options_whitespace_only.js': []}
       }
     },
     // Unit tests.
@@ -100,7 +96,7 @@ module.exports = function (grunt) {
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['clean', 'googleclosurecompiler:default_options', 'googleclosurecompiler:custom_options_advanced', 'googleclosurecompiler:custom_options_whitespace_only', 'googleclosurecompiler:custom_options_fail', 'nodeunit']);
+  grunt.registerTask('test', ['clean', 'googleclosurecompiler:default_options', 'googleclosurecompiler:custom_options_advanced', 'googleclosurecompiler:custom_options_whitespace_only', 'nodeunit']);
 
   grunt.registerTask('changelog', ['conventionalChangelog']);
 
