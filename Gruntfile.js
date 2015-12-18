@@ -105,8 +105,8 @@ module.exports = function (grunt) {
   grunt.registerTask('docs', ['shell']);
   grunt.registerTask('docs-with-changelog', ['changelog', 'docs']);
 
-//  grunt.registerTask('bump-up', ['default', 'bump-only:patch', 'docs-with-changelog', 'bump-commit']);
-  grunt.registerTask('bump-up', ['default', 'bump:patch', 'docs-with-changelog']);
+  grunt.registerTask('bump-up', ['default', 'bump-only:patch', 'docs-with-changelog', 'bump-commit']);
+//  grunt.registerTask('bump-up', ['default', 'bump:patch', 'docs-with-changelog']);
   grunt.registerTask('bump-up-patch', ['bump-up']);
   grunt.registerTask('bump-up-minor', ['default', 'bump-only:minor', 'docs-with-changelog', 'bump-commit']);
   grunt.registerTask('bump-up-major', ['default', 'bump-only:major', 'docs-with-changelog', 'bump-commit']);
