@@ -29,6 +29,7 @@ module.exports = function (grunt) {
       report_file: '',
       compiler_jar: 'node_modules/google-closure-compiler/compiler.jar',
       exec_maxBuffer: 200,
+      java_path: null,
       java_d32: false,
       java_tieredcompilation: true
     });
@@ -53,8 +54,20 @@ module.exports = function (grunt) {
       compileDone(false);
     }
 
+    var java_path = 'java';
+
+    // If we have setted JAVA_HOME we would prefer this
+    if (grunt.util.kindOf(process.env.JAVA_HOME) !== 'undefined') {
+      java_path = process.env.JAVA_HOME + '/bin/java';
+    }
+
+    // At least the user can set it by config
+    if (options.java_path !== null) {
+      java_path = options.java_path;
+    }
+
     // Java command with optional parameters
-    var command = 'java ' +
+    var command = java_path + ' ' +
             (options.java_d32 === true ? '-client -d32 ' : '') +
             (options.java_tieredcompilation === true ? '-server -XX:+TieredCompilation ' : '') +
             '-jar "' + options.compiler_jar + '"';
