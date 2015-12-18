@@ -1,7 +1,6 @@
 ### Some stuff we have to do...
 
-- Write tests https://travis-ci.org
-- Print out some reports after compiling
+- Write unit tests
 - Make closure externs possible
 - Add formatting param `[PRETTY_PRINT | PRINT_INPUT_DELIMITER | SINGLE_QUOTES]`
 - Add language_in param `ECMASCRIPT3 (default), ECMASCRIPT5, ECMASCRIPT5_STRICT, ECMASCRIPT6, ECMASCRIPT6_STRICT, ECMASCRIPT6_TYPED (experimental)`
@@ -11,3 +10,4 @@
 - Enhancement: change compilation levels for certain files. https://github.com/gmarty/grunt-closure-compiler/issues/13
 - How to compile js files and put them into the same directory https://github.com/gmarty/grunt-closure-compiler/issues/25
 - - Check if output file exists in file array and sort it out
+- Enable log file
