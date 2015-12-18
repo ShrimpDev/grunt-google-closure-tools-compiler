@@ -1,3 +1,12 @@
+<a name="0.1.4"></a>
+#### [0.1.4](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/compare/v0.1.2...v0.1.4) (2015-12-18)
+
+##### Features
+
+* **task:** Show input and output file size after compilation ([fe369ae](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/commit/fe369ae))
+
+
+
 <a name="0.1.3"></a>
 #### [0.1.3](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/compare/v0.1.2...v0.1.3) (2015-12-18)
 

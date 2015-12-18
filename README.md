@@ -170,6 +170,18 @@ grunt.initConfig({
 
 ## Release History
 
+<a name="0.1.4"></a>
+
+## [0.1.4](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/compare/v0.1.2...v0.1.4) (2015-12-18)
+
+### Bug Fixes
+
+* **bump:** Fixing peerDependencies reference inside readme ([da7553e](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/commit/da7553e))
+
+### Features
+
+* **task:** Show input and output file size after compilation ([fe369ae](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/commit/fe369ae))
+
 <a name="0.1.3"></a>
 
 #### [0.1.3](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/compare/v0.1.2...v0.1.3) (2015-12-18)
@@ -195,20 +207,15 @@ grunt.initConfig({
 
 #### [0.1.1](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/compare/v0.1.0...v0.1.1) (2015-12-17)
 
-##### Bug Fixes
-
-* **travis-ci:** Removing npm uninstall grunt ([1959803](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/commit/1959803))
-
 <a name="0.1.0"></a>
 
-### [0.1.0](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/compare/v0.1.0...v0.1.0) (2015-12-17)
+### 0.1.0 (2015-12-17)
 
 ## ToDo
 
 ### Some stuff we have to do...
 
-* Write tests https://travis-ci.org
-* Print out some reports after compiling
+* Write unit tests
 * Make closure externs possible
 * Add formatting param `[PRETTY_PRINT | PRINT_INPUT_DELIMITER | SINGLE_QUOTES]`
 * Add language_in param `ECMASCRIPT3 (default), ECMASCRIPT5, ECMASCRIPT5_STRICT, ECMASCRIPT6, ECMASCRIPT6_STRICT, ECMASCRIPT6_TYPED (experimental)`
@@ -216,10 +223,12 @@ grunt.initConfig({
 * Support "--js closure-library/closure/goog/deps.js" https://github.com/thanpolas/grunt-closure-tools/issues/64
 *
   - google-closure-library
+
 * Enhancement: change compilation levels for certain files. https://github.com/gmarty/grunt-closure-compiler/issues/13
 * How to compile js files and put them into the same directory https://github.com/gmarty/grunt-closure-compiler/issues/25
 *
   - Check if output file exists in file array and sort it out
+* Enable log file
 
 ## Author
 
