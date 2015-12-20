@@ -198,7 +198,7 @@ grunt.initConfig({
 
 <a name="0.1.5"></a>
 
-#### 0.1.5 (2015-12-20)
+#### [0.1.5](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/compare/v0.1.4...v0.1.5) (2015-12-20)
 
 ##### Bug Fixes
 
@@ -213,7 +213,7 @@ grunt.initConfig({
 
 <a name="0.1.4"></a>
 
-#### [0.1.4](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/compare/v0.1.2...v0.1.4) (2015-12-18)
+#### [0.1.4](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/compare/v0.1.3...v0.1.4) (2015-12-18)
 
 ##### Features
 
@@ -255,7 +255,7 @@ grunt.initConfig({
 * Write unit tests
 * Make closure externs possible
 * Support "--js closure-library/closure/goog/deps.js" https://github.com/thanpolas/grunt-closure-tools/issues/64
-* 
+*
   - google-closure-library
 * Enhancement: change compilation levels for certain files. https://github.com/gmarty/grunt-closure-compiler/issues/13
 * Enable log file

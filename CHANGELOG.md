@@ -1,5 +1,5 @@
 <a name="0.1.5"></a>
-#### 0.1.5 (2015-12-20)
+#### [0.1.5](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/compare/v0.1.4...v0.1.5) (2015-12-20)
 
 ##### Bug Fixes
 
@@ -13,7 +13,7 @@
 * **task:** Add language-in and language-out options ([a71416f](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/commit/a71416f))
 
 <a name="0.1.4"></a>
-#### [0.1.4](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/compare/v0.1.2...v0.1.4) (2015-12-18)
+#### [0.1.4](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/compare/v0.1.3...v0.1.4) (2015-12-18)
 
 ##### Features
 
