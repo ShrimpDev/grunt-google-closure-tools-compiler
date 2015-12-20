@@ -15,6 +15,12 @@ module.exports = function (grunt) {
   var exec = require('child_process').exec;
   var fs = require('fs');
 
+  var possible_options = {
+    compilation_level: ['SIMPLE', 'ADVANCED', 'WHITESPACE_ONLY'],
+    language_in: ['ECMASCRIPT3', 'ECMASCRIPT5', 'ECMASCRIPT5_STRICT', 'ECMASCRIPT6', 'ECMASCRIPT6_STRICT', 'ECMASCRIPT6_TYPED'],
+    language_out: ['ECMASCRIPT3', 'ECMASCRIPT5', 'ECMASCRIPT5_STRICT', 'ECMASCRIPT6_TYPED']
+  };
+
   var getFilesizeInBytesfunction = function (filename) {
     var stats = fs.statSync(filename);
     var fileSizeInBytes = stats["size"];
@@ -30,6 +36,8 @@ module.exports = function (grunt) {
     var options = this.options({
       closure_compilation_level: 'SIMPLE',
       closure_create_source_map: true,
+      closure_language_in: null,
+      closure_language_out: null,
       closure_debug: false,
       banner: '',
       report_file: '',
@@ -52,12 +60,23 @@ module.exports = function (grunt) {
       compileDone(false);
     }
 
-    // Check compilation level
-    if (options.closure_compilation_level !== "SIMPLE" &&
-            options.closure_compilation_level !== "ADVANCED" &&
-            options.closure_compilation_level !== "WHITESPACE_ONLY") {
-      grunt.fail.warn('Wrong value for compilation level. (Possible values: SIMPLE, ADVANCED, WHITESPACE_ONLY)');
+    if (possible_options.compilation_level.indexOf(options.closure_compilation_level) === -1) {
+      grunt.fail.warn('Wrong value for compilation level. (Possible values: ' + possible_options.compilation_level.join(',') + ')');
       compileDone(false);
+    }
+
+    if (options.closure_language_in !== null) {
+      if (possible_options.language_in.indexOf(options.closure_language_in) === -1) {
+        grunt.fail.warn('Wrong value for compilation level. (Possible values: ' + possible_options.language_in.join(',') + ')');
+        compileDone(false);
+      }
+    }
+
+    if (options.closure_language_out !== null) {
+      if (possible_options.language_out.indexOf(options.closure_language_out) === -1) {
+        grunt.fail.warn('Wrong value for compilation level. (Possible values: ' + possible_options.language_out.join(',') + ')');
+        compileDone(false);
+      }
     }
 
     var java_path = 'java';
@@ -110,6 +129,14 @@ module.exports = function (grunt) {
       // Add source map param if necessary
       if (options.closure_create_source_map === true) {
         closure_command += ' --create_source_map="' + output_mapfile + '"';
+      }
+
+      if (options.closure_language_in !== null) {
+        closure_command += ' --language_in="' + options.closure_language_in + '"';
+      }
+
+      if (options.closure_language_out !== null) {
+        closure_command += ' --language_out="' + options.closure_language_out + '"';
       }
 
       // Add debug param if necessary
