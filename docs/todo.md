@@ -8,6 +8,4 @@
 - Support "--js closure-library/closure/goog/deps.js" https://github.com/thanpolas/grunt-closure-tools/issues/64
 - - google-closure-library
 - Enhancement: change compilation levels for certain files. https://github.com/gmarty/grunt-closure-compiler/issues/13
-- How to compile js files and put them into the same directory https://github.com/gmarty/grunt-closure-compiler/issues/25
-- - Check if output file exists in file array and sort it out
 - Enable log file
