@@ -1,3 +1,17 @@
+<a name="0.1.5"></a>
+#### 0.1.5 (2015-12-20)
+
+##### Bug Fixes
+
+* **package:** Move google closure library from dev to normal dependencies ([24450ab](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/commit/24450ab))
+* **task:** compile js files and put them into the same directory ([f048611](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/commit/f048611))
+
+##### Features
+
+* **task:** Add custom extra parameters config for closure ([a89fd1f](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/commit/a89fd1f))
+* **task:** Add formatting parameter ([c8b85c9](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/commit/c8b85c9))
+* **task:** Add language-in and language-out options ([a71416f](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/commit/a71416f))
+
 <a name="0.1.4"></a>
 #### [0.1.4](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/compare/v0.1.2...v0.1.4) (2015-12-18)
 
