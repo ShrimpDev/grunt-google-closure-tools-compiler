@@ -18,7 +18,8 @@ module.exports = function (grunt) {
   var possible_options = {
     compilation_level: ['SIMPLE', 'ADVANCED', 'WHITESPACE_ONLY'],
     language_in: ['ECMASCRIPT3', 'ECMASCRIPT5', 'ECMASCRIPT5_STRICT', 'ECMASCRIPT6', 'ECMASCRIPT6_STRICT', 'ECMASCRIPT6_TYPED'],
-    language_out: ['ECMASCRIPT3', 'ECMASCRIPT5', 'ECMASCRIPT5_STRICT', 'ECMASCRIPT6_TYPED']
+    language_out: ['ECMASCRIPT3', 'ECMASCRIPT5', 'ECMASCRIPT5_STRICT', 'ECMASCRIPT6_TYPED'],
+    formatting: ['PRETTY_PRINT', 'PRINT_INPUT_DELIMITER', 'SINGLE_QUOTES']
   };
 
   var getFilesizeInBytesfunction = function (filename) {
@@ -38,6 +39,7 @@ module.exports = function (grunt) {
       closure_create_source_map: true,
       closure_language_in: null,
       closure_language_out: null,
+      closure_formatting: null,
       closure_debug: false,
       closure_extra_param: null,
       banner: '',
@@ -68,14 +70,21 @@ module.exports = function (grunt) {
 
     if (options.closure_language_in !== null) {
       if (possible_options.language_in.indexOf(options.closure_language_in) === -1) {
-        grunt.fail.warn('Wrong value for compilation level. (Possible values: ' + possible_options.language_in.join(',') + ')');
+        grunt.fail.warn('Wrong value for language in. (Possible values: ' + possible_options.language_in.join(',') + ')');
         compileDone(false);
       }
     }
 
     if (options.closure_language_out !== null) {
       if (possible_options.language_out.indexOf(options.closure_language_out) === -1) {
-        grunt.fail.warn('Wrong value for compilation level. (Possible values: ' + possible_options.language_out.join(',') + ')');
+        grunt.fail.warn('Wrong value for language out. (Possible values: ' + possible_options.language_out.join(',') + ')');
+        compileDone(false);
+      }
+    }
+
+    if (options.closure_formatting !== null) {
+      if (possible_options.formatting.indexOf(options.closure_formatting) === -1) {
+        grunt.fail.warn('Wrong value for formatting. (Possible values: ' + possible_options.formatting.join(',') + ')');
         compileDone(false);
       }
     }
@@ -138,6 +147,10 @@ module.exports = function (grunt) {
 
       if (options.closure_language_out !== null) {
         closure_command += ' --language_out="' + options.closure_language_out + '"';
+      }
+
+      if (options.closure_formatting !== null) {
+        closure_command += ' --formatting="' + options.closure_formatting + '"';
       }
 
       // Add debug param if necessary
