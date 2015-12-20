@@ -67,12 +67,34 @@ Default: `true`
 
 If `true`, a source map file will be generated in the same directory as the `dest` file. By default it will have the same basename as the `dest` file, but with a `.map` extension.
 
-#### closure_create_source_map
+#### closure_language_in
+
+Choices: `'ECMASCRIPT3'`, `'ECMASCRIPT5'` , `'ECMASCRIPT5_STRICT'`, `'ECMASCRIPT6'`, `'ECMASCRIPT6_STRICT'`, `'ECMASCRIPT6_TYPED'`<br />
+Default: `'ECMASCRIPT3' (null)`
+
+#### closure_language_out
+
+Choices: `'ECMASCRIPT3'`, `'ECMASCRIPT5'` , `'ECMASCRIPT5_STRICT'`, `'ECMASCRIPT6_TYPED'`<br />
+Default: `language in`
+
+#### closure_formatting
+
+Choices: `'PRETTY_PRINT'`, `'PRINT_INPUT_DELIMITER'` , `'SINGLE_QUOTES'`<br />
+Default: `'PRETTY_PRINT' (null)`
+
+#### debug
 
 Type: `Boolean`<br />
 Default: `true`
 
 Turn on closure compiler debug parameter.
+
+#### closure_extra_param
+
+Type: `String`<br />
+Default: `null`
+
+Set some custom parameters for closure execution.
 
 #### banner
 
@@ -233,7 +255,7 @@ grunt.initConfig({
 * Write unit tests
 * Make closure externs possible
 * Support "--js closure-library/closure/goog/deps.js" https://github.com/thanpolas/grunt-closure-tools/issues/64
-*
+* 
   - google-closure-library
 * Enhancement: change compilation levels for certain files. https://github.com/gmarty/grunt-closure-compiler/issues/13
 * Enable log file
