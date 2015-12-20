@@ -3,7 +3,7 @@
 
 ##### Bug Fixes
 
-* **task:** Updating dependencies ([e1cc166](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/commit/e1cc166))
+* **task:** Updating closure dependencies ([e1cc166](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/commit/e1cc166))
 
 <a name="0.1.5"></a>
 #### [0.1.5](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/compare/v0.1.4...v0.1.5) (2015-12-20)
