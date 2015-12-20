@@ -39,6 +39,7 @@ module.exports = function (grunt) {
       closure_language_in: null,
       closure_language_out: null,
       closure_debug: false,
+      closure_extra_param: null,
       banner: '',
       report_file: '',
       compiler_jar: 'node_modules/google-closure-compiler/compiler.jar',
@@ -142,6 +143,10 @@ module.exports = function (grunt) {
       // Add debug param if necessary
       if (options.closure_debug === true) {
         closure_command += ' --debug';
+      }
+
+      if (options.closure_extra_param !== null) {
+        closure_command += ' ' + options.closure_extra_param;
       }
 
       // Closure tools don't create directories, so first we create an empty file at our dest
