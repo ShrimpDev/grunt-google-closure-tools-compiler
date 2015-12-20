@@ -72,8 +72,8 @@ module.exports = function (grunt) {
                   '{{/if}}\n' +
                   '{{#each commits}}\n' +
                   '{{> commit root=@root}}\n' +
-                  '{{/each}}' +
-                  '{{/each}}' +
+                  '{{/each}}\n' +
+                  '{{/each}}\n\n' +
                   '{{> footer}}',
           headerPartial: '<a name="{{version}}"></a>\n' +
                   '{{#if isPatch}}####{{else}}###{{/if}} {{version}}{{#if title}} "{{title}}"{{/if}}{{#if date}} ({{date}}){{/if}}'
