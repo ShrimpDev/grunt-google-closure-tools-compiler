@@ -188,6 +188,7 @@ grunt.initConfig({
 * **task:** Add custom extra parameters config for closure ([a89fd1f](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/commit/a89fd1f))
 * **task:** Add formatting parameter ([c8b85c9](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/commit/c8b85c9))
 * **task:** Add language-in and language-out options ([a71416f](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/commit/a71416f))
+
 <a name="0.1.4"></a>
 
 #### [0.1.4](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/compare/v0.1.2...v0.1.4) (2015-12-18)
