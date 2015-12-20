@@ -1,6 +1,6 @@
 {
     "name": "grunt-google-closure-tools-compiler",
-    "description": "A Grunt task for Closure Compiler to minify JS.",
+    "description": "Another Grunt task for Google Closure Compiler. Uses compiler npm build or you can use your own (eg: nightly builds)",
     "version": "0.1.4",
     "homepage": "https://github.com/ShrimpDev/grunt-google-closure-tools-compiler",
     "author": {
@@ -22,16 +22,17 @@
         }
     ],
     "engines": {
-        "node": ">= 0.8.0"
+        "node": ">= 0.8.0",
+        "grunt": ">= 0.4.0"
     },
     "scripts": {
         "test": "grunt test"
     },
     "dependencies": {
-        "google-closure-compiler": "^20151015.0.0"
+        "google-closure-compiler": "^20151015.0.0",
+        "google-closure-library": "^20151015.0.0"
     },
     "devDependencies": {
-        "google-closure-library": "^20151015.0.0",
         "grunt": "~0.4.5",
         "grunt-bump": "^0.7.*",
         "grunt-contrib-clean": "^0.7.*",
@@ -42,7 +43,7 @@
         "grunt-shell": "^1.1.*"
     },
     "keywords": [
-        "Google Closure Compiler",
+        "Google", "Closure", "Tools", "Compiler",
         "Java Script",
         "Minification",
         "Minify",
