@@ -79,6 +79,8 @@ module.exports = function (grunt) {
             '-jar "' + options.compiler_jar + '"';
 
     this.files.forEach(function (f) {
+      grunt.verbose.writeflags(f.src, "Input files");
+
       if (f.src.length === 0) {
         grunt.fail.warn('No javascript files given');
         compileDone(false);
@@ -87,8 +89,19 @@ module.exports = function (grunt) {
       var output_file = f.dest;
       var output_mapfile = output_file + '.map';
       var output_reportFile = options.report_file || output_file + '.report.txt';
+      var fSrcSizeTotal = 0.0;
+      var fileInputArray = [];
+      f.src.forEach(function (fSrc) {
+        if (fSrc !== output_file) {
+          fileInputArray.push(fSrc);
 
-      var javascript_files = '--js="' + f.src.join('" --js="') + '"';
+          var fSrcSize = getFilesizeInBytesfunction(fSrc) / 1000.0;
+          grunt.verbose.writeln('Input ' + fSrc + ' (' + fSrcSize.toFixed(2) + ' KB)');
+          fSrcSizeTotal += fSrcSize;
+        }
+      });
+
+      var javascript_files = '--js="' + fileInputArray.join('" --js="') + '"';
       var closure_command = command + ' ' + javascript_files + ' --js_output_file="' + output_file + '"';
 
       // Add compilation level
@@ -108,13 +121,6 @@ module.exports = function (grunt) {
       grunt.file.write(output_file, '');
 
       grunt.verbose.writeln(grunt.util.linefeed + 'Execute' + grunt.util.linefeed + closure_command + grunt.util.linefeed);
-
-      var fSrcSizeTotal = 0.0;
-      f.src.forEach(function (fSrc) {
-        var fSrcSize = getFilesizeInBytesfunction(fSrc) / 1000.0;
-        grunt.verbose.writeln('Input ' + fSrc + ' (' + fSrcSize.toFixed(2) + ' KB)');
-        fSrcSizeTotal += fSrcSize;
-      });
 
       grunt.log.writeln('Input  total size ' + fSrcSizeTotal.toFixed(2) + ' KB');
 
