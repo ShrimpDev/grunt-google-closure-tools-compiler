@@ -62,9 +62,21 @@ module.exports = function (grunt) {
     conventionalChangelog: {
       options: {
         changelogOpts: {
-          preset: 'angular'//,
-//          releaseCount: 0,
-//          append: false
+          preset: 'angular'
+        },
+        writerOpts: {
+          mainTemplate: '{{> header}}\n\n' +
+                  '{{#each commitGroups}}\n\n' +
+                  '{{#if title}}\n' +
+                  '##### {{title}}\n\n' +
+                  '{{/if}}\n' +
+                  '{{#each commits}}\n' +
+                  '{{> commit root=@root}}\n' +
+                  '{{/each}}' +
+                  '{{/each}}' +
+                  '{{> footer}}',
+          headerPartial: '<a name="{{version}}"></a>\n' +
+                  '{{#if isPatch}}####{{else}}###{{/if}} {{version}}{{#if title}} "{{title}}"{{/if}}{{#if date}} ({{date}}){{/if}}'
         }
       },
       release: {
