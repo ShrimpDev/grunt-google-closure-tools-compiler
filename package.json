@@ -1,57 +1,58 @@
 {
-    "name": "grunt-google-closure-tools-compiler",
-    "description": "Another Grunt task for Google Closure Compiler. Uses compiler npm build or you can use your own (eg: nightly builds)",
-    "version": "0.1.6",
-    "homepage": "https://github.com/ShrimpDev/grunt-google-closure-tools-compiler",
-    "author": {
-        "name": "CSoellinger",
-        "email": "dev@csoellinger.at"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/ShrimpDev/grunt-google-closure-tools-compiler.git"
-    },
-    "bugs": {
-        "url": "https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/issues"
-    },
-    "license": "MIT",
-    "licenses": [
-        {
-            "type": "MIT",
-            "url": "https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/blob/master/LICENSE-MIT"
-        }
-    ],
-    "engines": {
-        "node": ">= 0.8.0",
-        "grunt": ">= 0.4.0"
-    },
-    "scripts": {
-        "test": "grunt test"
-    },
-    "dependencies": {
-        "google-closure-compiler": "^20151216.0.0",
-        "google-closure-library": "^20151216.0.0"
-    },
-    "devDependencies": {
-        "grunt": "~0.4.5",
-        "grunt-bump": "^0.7.*",
-        "grunt-contrib-clean": "^0.7.*",
-        "grunt-contrib-jshint": "^0.11.*",
-        "grunt-contrib-nodeunit": "^0.4.*",
-        "grunt-conventional-changelog": "^5.*",
-        "grunt-replace": "^0.11.*",
-        "grunt-shell": "^1.1.*"
-    },
-    "keywords": [
-        "Google",
-        "Closure",
-        "Tools",
-        "Compiler",
-        "Java Script",
-        "Minification",
-        "Minify",
-        "Optimization",
-        "Performance",
-        "gruntplugin"
-    ]
+  "name": "grunt-google-closure-tools-compiler",
+  "description": "Another Grunt task for Google Closure Compiler. Uses compiler npm build or you can use your own (eg: nightly builds)",
+  "version": "0.1.6",
+  "homepage": "https://github.com/ShrimpDev/grunt-google-closure-tools-compiler",
+  "author": {
+    "name": "CSoellinger",
+    "email": "dev@csoellinger.at"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ShrimpDev/grunt-google-closure-tools-compiler.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/issues"
+  },
+  "license": "MIT",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/blob/master/LICENSE-MIT"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.8.0",
+    "grunt": ">= 0.4.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "dependencies": {
+    "google-closure-compiler": "^20151216.0.0",
+    "google-closure-library": "^20151216.0.0",
+    "lodash": "^3.10.1"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-bump": "^0.7.*",
+    "grunt-contrib-clean": "^0.7.*",
+    "grunt-contrib-jshint": "^0.11.*",
+    "grunt-contrib-nodeunit": "^0.4.*",
+    "grunt-conventional-changelog": "^5.*",
+    "grunt-replace": "^0.11.*",
+    "grunt-shell": "^1.1.*"
+  },
+  "keywords": [
+    "Google",
+    "Closure",
+    "Tools",
+    "Compiler",
+    "Java Script",
+    "Minification",
+    "Minify",
+    "Optimization",
+    "Performance",
+    "gruntplugin"
+  ]
 }

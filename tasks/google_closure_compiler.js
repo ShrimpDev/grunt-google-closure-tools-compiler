@@ -14,6 +14,7 @@ module.exports = function (grunt) {
 
   var exec = require('child_process').exec;
   var fs = require('fs');
+  var _isUndefined = require('lodash/lang/isUndefined');
 
   var possible_options = {
     compilation_level: ['SIMPLE', 'ADVANCED', 'WHITESPACE_ONLY'],
@@ -92,7 +93,7 @@ module.exports = function (grunt) {
     var java_path = 'java';
 
     // If we have setted JAVA_HOME we would prefer this
-    if (grunt.util.kindOf(process.env.JAVA_HOME) !== 'undefined') {
+    if (!_isUndefined(process.env.JAVA_HOME)) {
       java_path = process.env.JAVA_HOME + '/bin/java';
     }
 
