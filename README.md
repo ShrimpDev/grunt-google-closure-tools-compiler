@@ -194,19 +194,11 @@ grunt.initConfig({
 
 <a name="0.1.7"></a>
 
-#### 0.1.7 (2015-12-21)
+#### [0.1.7](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/compare/v0.1.6...v0.1.7) (2015-12-21)
 
 ##### Bug Fixes
 
-* **task:** Add lodash for isUndefined condition instead of grunt.util.kindOf (https://githu ([eccecfb](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/commit/eccecfb))
-
-<a name="0.1.7"></a>
-
-#### 0.1.7 (2015-12-21)
-
-##### Bug Fixes
-
-* **task:** Add lodash for isUndefined condition instead of grunt.util.kindOf (https://githu ([eccecfb](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/commit/eccecfb))
+* **task:** Add lodash for isUndefined condition instead of grunt.util.kindOf ([eccecfb](https://github.com/ShrimpDev/grunt-google-closure-tools-compiler/commit/eccecfb))
 
 <a name="0.1.6"></a>
 
