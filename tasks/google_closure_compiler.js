@@ -181,8 +181,8 @@ module.exports = function (grunt) {
           }
 
           if (options.closure_create_source_map === true) {
-            var tmpOutputMapFile = grunt.file.read(output_mapfile) + grunt.util.linefeed + '//# sourceMappingURL=' + output_mapfile;
-            grunt.file.write(output_mapfile, tmpOutputMapFile);
+            var tmpOutputMapFile = grunt.file.read(tmpOutputFile) + grunt.util.linefeed + '//# sourceMappingURL=' + output_mapfile;
+            grunt.file.write(tmpOutputFile, tmpOutputMapFile);
           }
         }
 
