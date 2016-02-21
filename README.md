@@ -141,7 +141,7 @@ If this is true, the jar file will be executed with `-server` and `-XX:+TieredCo
 ```js
 // Project configuration.
 grunt.initConfig({
-  googleclosurecompiler: {
+  closurecompiler: {
     my_target: {
       files: {
         'dest/output.min.js': ['src/input1.js', 'src/input2.js']
@@ -156,7 +156,7 @@ grunt.initConfig({
 ```js
 // Project configuration.
 grunt.initConfig({
-  googleclosurecompiler: {
+  closurecompiler: {
     my_target: {
       options: {
         closure_compilation_level: 'ADVANCED',
@@ -177,7 +177,7 @@ grunt.initConfig({
 ```js
 // Project configuration.
 grunt.initConfig({
-  googleclosurecompiler: {
+  closurecompiler: {
     my_target: {
       options: {
         closure_compilation_level: 'WHITESPACE_ONLY'
