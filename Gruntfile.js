@@ -37,7 +37,7 @@ module.exports = function (grunt) {
       },
       custom_options_advanced: {
         options: {
-          closure_compilation_level: 'ADVANCED'
+          compilation_level: 'ADVANCED'
         },
         files: {
           'tmp/custom_options_advanced.js': ['test/fixtures/main_custom.js', 'test/fixtures/main_custom_second.js']
@@ -45,10 +45,10 @@ module.exports = function (grunt) {
       },
       custom_options_whitespace_only: {
         options: {
-          closure_compilation_level: 'WHITESPACE_ONLY',
+          compilation_level: 'WHITESPACE_ONLY',
           banner: '/*\n' +
                   ' * Testing\n' +
-                  ' */\n'
+                  ' */\n%output% \n//END'
         },
         files: {
           'tmp/custom_options_whitespace_only.js': ['test/fixtures/main_custom.js', 'test/fixtures/main_custom_second.js']

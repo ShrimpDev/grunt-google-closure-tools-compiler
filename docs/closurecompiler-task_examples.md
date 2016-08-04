@@ -21,7 +21,7 @@ grunt.initConfig({
   googleclosurecompiler: {
     my_target: {
       options: {
-        closure_compilation_level: 'ADVANCED',
+        compilation_level: 'ADVANCED',
         banner: '/*\n' +
                 ' * Minified by closure compiler \n' +
                 ' */\n'
@@ -42,7 +42,7 @@ grunt.initConfig({
   googleclosurecompiler: {
     my_target: {
       options: {
-        closure_compilation_level: 'WHITESPACE_ONLY'
+        compilation_level: 'WHITESPACE_ONLY'
       },
       files: {
         'dest/output.min.js': ['src/**']
