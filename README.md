@@ -49,31 +49,31 @@ Task targets, files and options may be specified according to the grunt [Configu
 
 ### Options
 
-#### closure_compilation_level
+#### compilation_level
 
 Choices: `'SIMPLE'`, `'ADVANCED'` , `'WHITESPACE_ONLY'`<br />
 Default: `'SIMPLE'`
 
 Choose which closure compilation level we should use.
 
-#### closure_create_source_map
+#### create_source_map
 
 Type: `Boolean`<br />
 Default: `true`
 
 If `true`, a source map file will be generated in the same directory as the `dest` file. By default it will have the same basename as the `dest` file, but with a `.map` extension.
 
-#### closure_language_in
+#### language_in
 
 Choices: `'ECMASCRIPT3'`, `'ECMASCRIPT5'` , `'ECMASCRIPT5_STRICT'`, `'ECMASCRIPT6'`, `'ECMASCRIPT6_STRICT'`, `'ECMASCRIPT6_TYPED'`<br />
 Default: `'ECMASCRIPT3' (null)`
 
-#### closure_language_out
+#### language_out
 
 Choices: `'ECMASCRIPT3'`, `'ECMASCRIPT5'` , `'ECMASCRIPT5_STRICT'`, `'ECMASCRIPT6_TYPED'`<br />
 Default: `language in`
 
-#### closure_formatting
+#### formatting
 
 Choices: `'PRETTY_PRINT'`, `'PRINT_INPUT_DELIMITER'` , `'SINGLE_QUOTES'`<br />
 Default: `'PRETTY_PRINT' (null)`
@@ -85,7 +85,7 @@ Default: `true`
 
 Turn on closure compiler debug parameter.
 
-#### closure_extra_param
+#### extra_param
 
 Type: `String`<br />
 Default: `null`
@@ -159,10 +159,10 @@ grunt.initConfig({
   googleclosurecompiler: {
     my_target: {
       options: {
-        closure_compilation_level: 'ADVANCED',
+        compilation_level: 'ADVANCED',
         banner: '/*\n' +
                 ' * Minified by closure compiler \n' +
-                ' */\n'
+                ' */\n %output% \n //END'
       },
       files: {
         'dest/output.min.js': ['src/*.js']
@@ -180,7 +180,9 @@ grunt.initConfig({
   googleclosurecompiler: {
     my_target: {
       options: {
-        closure_compilation_level: 'WHITESPACE_ONLY'
+        compilation_level: 'WHITESPACE_ONLY',
+        banner: '// TODO:\n\n'
+      },
       },
       files: {
         'dest/output.min.js': ['src/**']
