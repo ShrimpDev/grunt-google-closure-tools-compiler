@@ -17,6 +17,7 @@ var fs = require('fs');
 var readline = require('readline');
 var _isUndefined = require('lodash/lang/isUndefined');
 var _isWin = /^win/.test(process.platform);
+var async = grunt.util.async;
 
 var possible_options = {
     compilation_level: ['SIMPLE', 'ADVANCED', 'WHITESPACE_ONLY'],
@@ -114,7 +115,7 @@ grunt.registerMultiTask('closurecompiler', 'A Grunt task for Closure Compiler.',
         (options.java_tieredcompilation === true ? '-server -XX:+TieredCompilation ' : '') +
         '-jar "' + options.compiler_jar + '"';
 
-    this.files.forEach(function(f) {
+    async.forEach(this.files, function(f) {
         grunt.verbose.writeflags(f.src, "Input files");
 
         if (f.src.length === 0) {
@@ -242,10 +243,10 @@ grunt.registerMultiTask('closurecompiler', 'A Grunt task for Closure Compiler.',
             if (stdout) {
                 grunt.log.writeln(stdout);
             }
-
-            grunt.log.ok('Compiled succesfully.');
-            compileDone();
         });
+    }, function (error) {
+        grunt.log.ok('Compiled succesfully.');
+        compileDone(!error);
     });
 });
 
