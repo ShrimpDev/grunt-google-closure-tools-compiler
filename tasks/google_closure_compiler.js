@@ -15,7 +15,7 @@ module.exports = function(grunt) {
 var exec = require('child_process').exec;
 var fs = require('fs');
 var readline = require('readline');
-var _isUndefined = require('lodash/lang/isUndefined');
+var _isUndefined = require('lodash/isUndefined');
 var _isWin = /^win/.test(process.platform);
 var async = grunt.util.async;
 
