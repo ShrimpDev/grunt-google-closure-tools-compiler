@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "google-closure-compiler": "^20151216.0.0",
-    "google-closure-library": "^20151216.0.0",
+    "google-closure-library": "^20200830.0.0",
     "lodash": "^4.17.15"
   },
   "devDependencies": {
